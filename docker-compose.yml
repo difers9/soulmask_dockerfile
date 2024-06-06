@@ -1,0 +1,12 @@
+services:
+  soulmask:
+    build: .
+    environment:
+      - TZ=Europe/Paris
+    volumes:
+      - /opt/volumes/soulmask_server:/mnt/soulmask/server:rw
+    ports:
+      - '8777:8777/udp'
+      - '27015:27015/udp'
+    restart: unless-stopped
+    network_mode: bridge
